@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Developer Toolbox — Small tools. Big productivity.</title>
+    <meta
+      name="description"
+      content="Fast, private, browser-based developer utilities: JSON formatter, UUID generator, Base64 encoder, timestamp converter, text case converter and more."
+    />
+    <meta name="theme-color" content="#0b0d12" />
+    <link rel="canonical" href="https://developer-toolbox.example.com/" />
+
+    <meta property="og:site_name" content="Developer Toolbox" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Developer Toolbox — Small tools. Big productivity." />
+    <meta
+      property="og:description"
+      content="Fast, private, browser-based utilities for everyday development."
+    />
+    <meta property="og:url" content="https://developer-toolbox.example.com/" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Developer Toolbox — Small tools. Big productivity." />
+    <meta
+      name="twitter:description"
+      content="Fast, private, browser-based utilities for everyday development."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      (function () {
+        try {
+          var stored = JSON.parse(localStorage.getItem("devtoolbox:theme"));
+          var isDark =
+            stored === "dark" ||
+            (stored !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+          if (isDark) document.documentElement.classList.add("dark");
+        } catch (e) {
+          // localStorage unavailable — fall back to the default light theme
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
