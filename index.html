@@ -5,6 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    // GOOGLE SEARCH CONSOLE VERIFICATION
+    <meta
+      name="google-site-verification"
+      content="EY7NYVg7wYLLo27uTwHl1akzX6XKGw94hs8hrjrsm88"
+    />
+
     <title>Developer Toolbox — Small tools. Big productivity.</title>
     <meta
       name="description"
@@ -15,7 +21,10 @@
 
     <meta property="og:site_name" content="Developer Toolbox" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Developer Toolbox — Small tools. Big productivity." />
+    <meta
+      property="og:title"
+      content="Developer Toolbox — Small tools. Big productivity."
+    />
     <meta
       property="og:description"
       content="Fast, private, browser-based utilities for everyday development."
@@ -23,7 +32,10 @@
     <meta property="og:url" content="https://developer-toolbox.example.com/" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Developer Toolbox — Small tools. Big productivity." />
+    <meta
+      name="twitter:title"
+      content="Developer Toolbox — Small tools. Big productivity."
+    />
     <meta
       name="twitter:description"
       content="Fast, private, browser-based utilities for everyday development."
@@ -42,7 +54,8 @@
           var stored = JSON.parse(localStorage.getItem("devtoolbox:theme"));
           var isDark =
             stored === "dark" ||
-            (stored !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+            (stored !== "light" &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches);
           if (isDark) document.documentElement.classList.add("dark");
         } catch (e) {
           // localStorage unavailable — fall back to the default light theme
