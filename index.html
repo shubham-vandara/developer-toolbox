@@ -1,85 +1,71 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
-    <meta
-      name="google-site-verification"
-      content="EY7NYVg7wYLLo27uTwHl1akzX6XKGw94hs8hrjrsm88"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Developer Toolbox — Small tools. Big productivity.</title>
-    <meta
-      name="description"
-      content="Fast, private, browser-based developer utilities: JSON formatter, UUID generator, Base64 encoder, timestamp converter, text case converter and more."
-    />
-    <meta name="theme-color" content="#0b0d12" />
-    <link rel="canonical" href="https://devhelpers.netlify.app/" />
+  <!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
+  <meta name="google-site-verification" content="EY7NYVg7wYLLo27uTwHl1akzX6XKGw94hs8hrjrsm88" />
 
-    <meta property="og:site_name" content="Developer Toolbox" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Developer Toolbox — Small tools. Big productivity."
-    />
-    <meta
-      property="og:description"
-      content="Fast, private, browser-based utilities for everyday development."
-    />
-    <meta property="og:url" content="https://devhelpers.netlify.app/" />
+  <title>Free Online Developer Tools &amp; Utilities | DevHelpers</title>
+  <meta name="description"
+    content="DevHelpers offers 46 free developer tools: JSON formatter, regex tester, Base64, JWT decoder and more. Fast, private and browser-based. Start now." />
+  <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
+  <meta name="theme-color" content="#0b0d12" />
+  <link rel="canonical" href="https://devhelpers.netlify.app/" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Developer Toolbox — Small tools. Big productivity."
-    />
-    <meta
-      name="twitter:description"
-      content="Fast, private, browser-based utilities for everyday development."
-    />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Free Online Developer Tools &amp; Utilities | DevHelpers" />
+  <meta property="og:description"
+    content="DevHelpers offers 46 free developer tools: JSON formatter, regex tester, Base64, JWT decoder and more. Fast, private and browser-based. Start now." />
+  <meta property="og:url" content="https://devhelpers.netlify.app/" />
+  <meta property="og:site_name" content="DevHelpers" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Free Online Developer Tools &amp; Utilities | DevHelpers" />
+  <meta name="twitter:description"
+    content="DevHelpers offers 46 free developer tools: JSON formatter, regex tester, Base64, JWT decoder and more. Fast, private and browser-based. Start now." />
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-LBCMK3NB5X"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LBCMK3NB5X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-LBCMK3NB5X");
+  </script>
+
+  <script>
+    (function () {
+      try {
+        var stored = JSON.parse(localStorage.getItem("devtoolbox:theme"));
+        var isDark =
+          stored === "dark" ||
+          (stored !== "light" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+        if (isDark) document.documentElement.classList.add("dark");
+      } catch (e) {
+        // localStorage unavailable — fall back to the default light theme
       }
-      gtag("js", new Date());
+    })();
+  </script>
+</head>
 
-      gtag("config", "G-LBCMK3NB5X");
-    </script>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
 
-    <script>
-      (function () {
-        try {
-          var stored = JSON.parse(localStorage.getItem("devtoolbox:theme"));
-          var isDark =
-            stored === "dark" ||
-            (stored !== "light" &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches);
-          if (isDark) document.documentElement.classList.add("dark");
-        } catch (e) {
-          // localStorage unavailable — fall back to the default light theme
-        }
-      })();
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
 </html>

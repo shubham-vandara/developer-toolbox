@@ -1,54 +1,61 @@
 import { useEffect } from "react";
 
-const SITE_NAME = "Developer Toolbox";
-const SITE_URL = "https://developer-toolbox.example.com";
+const SITE_NAME = "DevHelpers";
+const SITE_URL = "https://devhelpers.netlify.app/";
+const DEFAULT_TITLE = "Free Online Developer Tools & Utilities";
+const DEFAULT_ROBOTS =
+  "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large";
 
-function setMetaTag(attr, key, content) {
-  let el = document.head.querySelector(`meta[${attr}="${key}"]`);
+export const DEFAULT_DESCRIPTION = (count) =>
+  `DevHelpers offers ${count} free developer tools: JSON formatter, regex tester, Base64, JWT decoder and more. Fast, private and browser-based. Start now.`;
+
+function upsert(selector, create, attrs) {
+  let el = document.head.querySelector(selector);
   if (!el) {
-    el = document.createElement("meta");
-    el.setAttribute(attr, key);
+    el = document.createElement(create);
     document.head.appendChild(el);
   }
-  el.setAttribute("content", content);
-  return el;
+  Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
 }
 
-function setLinkTag(rel, href) {
-  let el = document.head.querySelector(`link[rel="${rel}"]`);
-  if (!el) {
-    el = document.createElement("link");
-    el.setAttribute("rel", rel);
-    document.head.appendChild(el);
-  }
-  el.setAttribute("href", href);
-  return el;
-}
+const meta = (attr, key, content) =>
+  upsert(`meta[${attr}="${key}"]`, "meta", { [attr]: key, content });
 
-/**
- * Imperatively sets per-page title/meta tags. Kept dependency-free since a
- * single-page app only ever needs to update a handful of head tags on route
- * change — no need for a helmet-style library.
- */
-export function useDocumentHead({ title, description, path = "" }) {
+export function useDocumentHead({
+  title, // omit on the home page
+  description,
+  path = "",
+  image, // optional absolute URL
+  noindex = false,
+}) {
   useEffect(() => {
-    const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Small tools. Big productivity.`;
-    const url = `${SITE_URL}${path}`;
+    const pageTitle = title ?? DEFAULT_TITLE;
+    const fullTitle = `${pageTitle} | ${SITE_NAME}`;
+    const url = new URL(path, `${SITE_URL}/`).href;
+    const robots = noindex ? "noindex, nofollow" : DEFAULT_ROBOTS;
 
     document.title = fullTitle;
 
     if (description) {
-      setMetaTag("name", "description", description);
-      setMetaTag("property", "og:description", description);
-      setMetaTag("name", "twitter:description", description);
+      meta("name", "description", description);
+      meta("property", "og:description", description);
+      meta("name", "twitter:description", description);
     }
 
-    setMetaTag("property", "og:title", fullTitle);
-    setMetaTag("property", "og:url", url);
-    setMetaTag("property", "og:type", "website");
-    setMetaTag("name", "twitter:card", "summary_large_image");
-    setMetaTag("name", "twitter:title", fullTitle);
+    meta("name", "robots", robots);
+    meta("property", "og:locale", "en_US");
+    meta("property", "og:type", "website");
+    meta("property", "og:site_name", SITE_NAME);
+    meta("property", "og:title", fullTitle);
+    meta("property", "og:url", url);
+    meta("name", "twitter:title", fullTitle);
+    meta("name", "twitter:card", image ? "summary_large_image" : "summary");
 
-    setLinkTag("canonical", url);
-  }, [title, description, path]);
+    if (image) {
+      meta("property", "og:image", image);
+      meta("name", "twitter:image", image);
+    }
+
+    upsert('link[rel="canonical"]', "link", { rel: "canonical", href: url });
+  }, [title, description, path, image, noindex]);
 }

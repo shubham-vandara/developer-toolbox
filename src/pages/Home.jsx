@@ -10,7 +10,7 @@ import {
   getToolCount,
   searchTools,
 } from "../data/tools.js";
-import { useDocumentHead } from "../hooks/useDocumentHead.js";
+import { useDocumentHead, DEFAULT_DESCRIPTION } from "../hooks/useDocumentHead.js";
 import { useFavoriteTools } from "../hooks/useFavoriteTools.js";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from "../config.js";
 
@@ -39,6 +39,7 @@ export function Home() {
   const { favoriteIds, toggleFavorite, isFavorite } = useFavoriteTools();
   const categories = getActiveCategories();
   const popularTools = getPopularTools();
+  const toolCount = getToolCount();
   const stats = [
     { value: `${getToolCount()}+`, label: "Developer Tools" },
     { value: `${getCategoryCount()}`, label: "Categories" },
@@ -46,7 +47,7 @@ export function Home() {
   ];
 
   useDocumentHead({
-    description: SITE_DESCRIPTION,
+    description: DEFAULT_DESCRIPTION(toolCount),
     path: "/",
   });
 
@@ -84,9 +85,8 @@ export function Home() {
             >
               {results.length === 0
                 ? "No tools found."
-                : `${results.length} tool${
-                    results.length === 1 ? "" : "s"
-                  } found`}
+                : `${results.length} tool${results.length === 1 ? "" : "s"
+                } found`}
             </p>
           )}
 

@@ -66,21 +66,30 @@ export const categories = {
 export const tools = [
   {
     id: "json-formatter",
-    name: "JSON Formatter & Validator",
+    name: "JSON Formatter & Validator Online, Free",
     shortName: "JSON Formatter",
-    description: "Format, validate and minify JSON instantly.",
+    description:
+      "Format, validate and minify JSON instantly in your browser. Spot syntax errors fast and copy clean, readable output in one click. Try it free.",
     category: "json",
     path: "/tools/json-formatter",
     icon: Braces,
     popular: true,
-    keywords: ["json", "formatter", "validator", "pretty print", "minify", "lint"],
+    keywords: [
+      "json",
+      "formatter",
+      "validator",
+      "pretty print",
+      "minify",
+      "lint",
+    ],
     component: lazy(() => import("../tools/json/JsonFormatter.jsx")),
   },
   {
     id: "uuid-generator",
-    name: "UUID Generator",
+    name: "UUID Generator - Create v4 UUIDs in Bulk",
     shortName: "UUID Generator",
-    description: "Generate v4 UUIDs, one at a time or in bulk.",
+    description:
+      "Need unique IDs for a database or test fixture? Generate random v4 UUIDs one at a time or in bulk, then copy them instantly. No sign-up needed.",
     category: "generators",
     path: "/tools/uuid-generator",
     icon: Fingerprint,
@@ -109,7 +118,15 @@ export const tools = [
     path: "/tools/timestamp",
     icon: Clock,
     popular: true,
-    keywords: ["timestamp", "unix", "epoch", "date", "time", "converter", "utc"],
+    keywords: [
+      "timestamp",
+      "unix",
+      "epoch",
+      "date",
+      "time",
+      "converter",
+      "utc",
+    ],
     component: lazy(() => import("../tools/timestamp/TimestampConverter.jsx")),
   },
   {
@@ -121,7 +138,15 @@ export const tools = [
     path: "/tools/text-case-converter",
     icon: CaseSensitive,
     popular: true,
-    keywords: ["text", "case", "camelcase", "snake_case", "kebab-case", "title case", "converter"],
+    keywords: [
+      "text",
+      "case",
+      "camelcase",
+      "snake_case",
+      "kebab-case",
+      "title case",
+      "converter",
+    ],
     component: lazy(() => import("../tools/text-case/TextCaseConverter.jsx")),
   },
 
@@ -134,7 +159,14 @@ export const tools = [
     category: "encoding",
     path: "/tools/url-encoder",
     icon: Link2,
-    keywords: ["url", "uri", "encode", "decode", "encodeuricomponent", "percent encoding"],
+    keywords: [
+      "url",
+      "uri",
+      "encode",
+      "decode",
+      "encodeuricomponent",
+      "percent encoding",
+    ],
     component: lazy(() => import("../tools/url-encoder/UrlEncoder.jsx")),
   },
   {
@@ -145,7 +177,15 @@ export const tools = [
     category: "encoding",
     path: "/tools/html-entities",
     icon: Code2,
-    keywords: ["html", "entity", "entities", "encode", "decode", "escape", "unescape"],
+    keywords: [
+      "html",
+      "entity",
+      "entities",
+      "encode",
+      "decode",
+      "escape",
+      "unescape",
+    ],
     component: lazy(() => import("../tools/html-entities/HtmlEntityTool.jsx")),
   },
   {
@@ -156,7 +196,14 @@ export const tools = [
     category: "text",
     path: "/tools/text-counter",
     icon: AlignLeft,
-    keywords: ["word count", "character count", "line count", "sentence", "paragraph", "counter"],
+    keywords: [
+      "word count",
+      "character count",
+      "line count",
+      "sentence",
+      "paragraph",
+      "counter",
+    ],
     component: lazy(() => import("../tools/text-counter/TextCounter.jsx")),
   },
   {
@@ -168,7 +215,9 @@ export const tools = [
     path: "/tools/remove-duplicate-lines",
     icon: ListMinus,
     keywords: ["duplicate", "lines", "unique", "dedupe", "remove"],
-    component: lazy(() => import("../tools/remove-duplicate-lines/RemoveDuplicateLines.jsx")),
+    component: lazy(
+      () => import("../tools/remove-duplicate-lines/RemoveDuplicateLines.jsx"),
+    ),
   },
   {
     id: "sort-lines",
@@ -239,7 +288,9 @@ export const tools = [
     icon: KeyRound,
     popular: true,
     keywords: ["password", "generator", "random", "secure", "strength"],
-    component: lazy(() => import("../tools/password-generator/PasswordGenerator.jsx")),
+    component: lazy(
+      () => import("../tools/password-generator/PasswordGenerator.jsx"),
+    ),
   },
   {
     id: "random-data-generator",
@@ -249,8 +300,17 @@ export const tools = [
     category: "generators",
     path: "/tools/random-data-generator",
     icon: Dices,
-    keywords: ["random", "fake data", "test data", "mock", "generator", "faker"],
-    component: lazy(() => import("../tools/random-data-generator/RandomDataGenerator.jsx")),
+    keywords: [
+      "random",
+      "fake data",
+      "test data",
+      "mock",
+      "generator",
+      "faker",
+    ],
+    component: lazy(
+      () => import("../tools/random-data-generator/RandomDataGenerator.jsx"),
+    ),
   },
   {
     id: "jwt-decoder",
@@ -285,7 +345,9 @@ export const tools = [
     path: "/tools/http-status-codes",
     icon: Globe,
     keywords: ["http", "status", "codes", "reference", "404", "500"],
-    component: lazy(() => import("../tools/http-status-codes/HttpStatusCodes.jsx")),
+    component: lazy(
+      () => import("../tools/http-status-codes/HttpStatusCodes.jsx"),
+    ),
   },
   {
     id: "mime-types",
@@ -354,8 +416,18 @@ export const tools = [
     category: "conversion",
     path: "/tools/number-base-converter",
     icon: Calculator,
-    keywords: ["binary", "decimal", "octal", "hex", "hexadecimal", "base converter", "number"],
-    component: lazy(() => import("../tools/number-base-converter/NumberBaseConverter.jsx")),
+    keywords: [
+      "binary",
+      "decimal",
+      "octal",
+      "hex",
+      "hexadecimal",
+      "base converter",
+      "number",
+    ],
+    component: lazy(
+      () => import("../tools/number-base-converter/NumberBaseConverter.jsx"),
+    ),
   },
   {
     id: "color-converter",
@@ -366,7 +438,9 @@ export const tools = [
     path: "/tools/color-converter",
     icon: Palette,
     keywords: ["color", "hex", "rgb", "hsl", "converter", "picker"],
-    component: lazy(() => import("../tools/color-converter/ColorConverter.jsx")),
+    component: lazy(
+      () => import("../tools/color-converter/ColorConverter.jsx"),
+    ),
   },
   {
     id: "date-difference",
@@ -377,7 +451,9 @@ export const tools = [
     path: "/tools/date-difference",
     icon: CalendarRange,
     keywords: ["date", "difference", "calculator", "days between", "duration"],
-    component: lazy(() => import("../tools/date-difference/DateDifference.jsx")),
+    component: lazy(
+      () => import("../tools/date-difference/DateDifference.jsx"),
+    ),
   },
   {
     id: "cron-helper",
@@ -396,7 +472,8 @@ export const tools = [
     id: "regex-tester",
     name: "Regex Tester",
     shortName: "Regex Tester",
-    description: "Test regular expressions against sample text with live matches.",
+    description:
+      "Test regular expressions against sample text with live matches.",
     category: "text",
     path: "/tools/regex-tester",
     icon: Regex,
@@ -435,7 +512,9 @@ export const tools = [
     path: "/tools/markdown-preview",
     icon: NotebookText,
     keywords: ["markdown", "preview", "render", "md", "gfm"],
-    component: lazy(() => import("../tools/markdown-preview/MarkdownPreview.jsx")),
+    component: lazy(
+      () => import("../tools/markdown-preview/MarkdownPreview.jsx"),
+    ),
   },
   {
     id: "lorem-ipsum",
@@ -467,14 +546,22 @@ export const tools = [
     category: "conversion",
     path: "/tools/unit-converter",
     icon: Ruler,
-    keywords: ["unit", "converter", "length", "weight", "temperature", "data size"],
+    keywords: [
+      "unit",
+      "converter",
+      "length",
+      "weight",
+      "temperature",
+      "data size",
+    ],
     component: lazy(() => import("../tools/unit-converter/UnitConverter.jsx")),
   },
   {
     id: "qr-code",
     name: "QR Code Generator",
     shortName: "QR Code",
-    description: "Generate a QR code from text or a URL, entirely in your browser.",
+    description:
+      "Generate a QR code from text or a URL, entirely in your browser.",
     category: "generators",
     path: "/tools/qr-code",
     icon: QrCode,
@@ -504,7 +591,9 @@ export const tools = [
     path: "/tools/percentage-calculator",
     icon: Percent,
     keywords: ["percentage", "percent", "calculator", "ratio", "change"],
-    component: lazy(() => import("../tools/percentage-calculator/PercentageCalculator.jsx")),
+    component: lazy(
+      () => import("../tools/percentage-calculator/PercentageCalculator.jsx"),
+    ),
   },
   {
     id: "regex-cheatsheet",
@@ -514,8 +603,16 @@ export const tools = [
     category: "reference",
     path: "/tools/regex-cheatsheet",
     icon: ScrollText,
-    keywords: ["regex", "regular expression", "cheatsheet", "reference", "syntax"],
-    component: lazy(() => import("../tools/regex-cheatsheet/RegexCheatsheet.jsx")),
+    keywords: [
+      "regex",
+      "regular expression",
+      "cheatsheet",
+      "reference",
+      "syntax",
+    ],
+    component: lazy(
+      () => import("../tools/regex-cheatsheet/RegexCheatsheet.jsx"),
+    ),
   },
   {
     id: "git-cheatsheet",
@@ -532,7 +629,8 @@ export const tools = [
     id: "url-parser",
     name: "URL Parser",
     shortName: "URL Parser",
-    description: "Break a URL down into its protocol, host, path and query params.",
+    description:
+      "Break a URL down into its protocol, host, path and query params.",
     category: "encoding",
     path: "/tools/url-parser",
     icon: SplitSquareHorizontal,
@@ -548,13 +646,16 @@ export const tools = [
     path: "/tools/gitignore-generator",
     icon: FileX2,
     keywords: ["gitignore", "git", "generator", "ignore"],
-    component: lazy(() => import("../tools/gitignore-generator/GitignoreGenerator.jsx")),
+    component: lazy(
+      () => import("../tools/gitignore-generator/GitignoreGenerator.jsx"),
+    ),
   },
   {
     id: "env-generator",
     name: ".env Generator",
     shortName: ".env Generator",
-    description: "Build a .env file (and matching .env.example) from key-value pairs.",
+    description:
+      "Build a .env file (and matching .env.example) from key-value pairs.",
     category: "generators",
     path: "/tools/env-generator",
     icon: FileCog,
@@ -565,7 +666,8 @@ export const tools = [
     id: "log-formatter",
     name: "Log Formatter",
     shortName: "Log Formatter",
-    description: "Pretty-print raw log lines and highlight their severity level.",
+    description:
+      "Pretty-print raw log lines and highlight their severity level.",
     category: "formatting",
     path: "/tools/log-formatter",
     icon: FileText,
@@ -576,13 +678,23 @@ export const tools = [
     id: "stack-trace-formatter",
     name: "Stack Trace Formatter",
     shortName: "Stack Trace Formatter",
-    description: "Clean up and highlight Java, JavaScript and Python stack traces.",
+    description:
+      "Clean up and highlight Java, JavaScript and Python stack traces.",
     category: "formatting",
     path: "/tools/stack-trace-formatter",
     icon: Bug,
     popular: true,
-    keywords: ["stack trace", "exception", "error", "java", "javascript", "python"],
-    component: lazy(() => import("../tools/stack-trace-formatter/StackTraceFormatter.jsx")),
+    keywords: [
+      "stack trace",
+      "exception",
+      "error",
+      "java",
+      "javascript",
+      "python",
+    ],
+    component: lazy(
+      () => import("../tools/stack-trace-formatter/StackTraceFormatter.jsx"),
+    ),
   },
   {
     id: "ascii-reference",
@@ -593,7 +705,9 @@ export const tools = [
     path: "/tools/ascii-reference",
     icon: Grid3x3,
     keywords: ["ascii", "unicode", "character codes", "reference", "table"],
-    component: lazy(() => import("../tools/ascii-reference/AsciiReference.jsx")),
+    component: lazy(
+      () => import("../tools/ascii-reference/AsciiReference.jsx"),
+    ),
   },
 ];
 
@@ -628,7 +742,12 @@ export function searchTools(query) {
   const q = query.trim().toLowerCase();
   if (!q) return tools;
   return tools.filter((tool) => {
-    const haystack = [tool.name, tool.description, categories[tool.category], ...tool.keywords]
+    const haystack = [
+      tool.name,
+      tool.description,
+      categories[tool.category],
+      ...tool.keywords,
+    ]
       .join(" ")
       .toLowerCase();
     return haystack.includes(q);
