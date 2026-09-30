@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import { ChevronDown, Menu, Search, Terminal } from "lucide-react";
-import { getActiveCategories } from "../../data/tools.js";
+import { ChevronDown, Menu, Search, Star, Terminal } from "lucide-react";
+import { getActiveCategories, getToolById } from "../../data/tools.js";
 import { GITHUB_URL, SITE_NAME } from "../../config.js";
+import { useFavoriteTools } from "../../hooks/useFavoriteTools.js";
 import { ThemeToggle } from "../common/ThemeToggle.jsx";
 import { GithubIcon } from "../common/icons.jsx";
 import { cn } from "../../utils/cn.js";
@@ -18,6 +19,8 @@ const navLinkClass = ({ isActive }) =>
 export function Header({ onOpenSearch }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const categories = getActiveCategories();
+  const { favoriteIds } = useFavoriteTools();
+  const favoriteTools = favoriteIds.map(getToolById).filter(Boolean);
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
@@ -57,6 +60,52 @@ export function Header({ onOpenSearch }) {
                     </Link>
                   </DropdownMenu.Item>
                 ))}
+              </DropdownMenu.Content>
+            </DropdownMenu.Portal>
+          </DropdownMenu.Root>
+
+          <DropdownMenu.Root>
+            <DropdownMenu.Trigger asChild>
+              <button
+                type="button"
+                className="inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <Star
+                  className={cn("h-3.5 w-3.5", favoriteTools.length > 0 && "fill-warning text-warning")}
+                  aria-hidden="true"
+                />
+                Favorites
+                {favoriteTools.length > 0 && (
+                  <span className="rounded-full bg-muted px-1.5 text-xs text-muted-foreground">
+                    {favoriteTools.length}
+                  </span>
+                )}
+                <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
+              </button>
+            </DropdownMenu.Trigger>
+            <DropdownMenu.Portal>
+              <DropdownMenu.Content
+                align="start"
+                sideOffset={8}
+                className="z-50 max-h-[70vh] min-w-[14rem] overflow-y-auto rounded-md border border-border bg-surface-raised p-1 shadow-md"
+              >
+                {favoriteTools.length === 0 ? (
+                  <p className="max-w-[16rem] px-2 py-2 text-sm text-muted-foreground">
+                    No favorites yet. Click the star on any tool to pin it here.
+                  </p>
+                ) : (
+                  favoriteTools.map((tool) => (
+                    <DropdownMenu.Item key={tool.id} asChild>
+                      <Link
+                        to={tool.path}
+                        className="flex items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-muted focus:bg-muted"
+                      >
+                        <tool.icon className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+                        {tool.name}
+                      </Link>
+                    </DropdownMenu.Item>
+                  ))
+                )}
               </DropdownMenu.Content>
             </DropdownMenu.Portal>
           </DropdownMenu.Root>

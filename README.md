@@ -2,7 +2,7 @@
 
 > Small tools. Big productivity.
 
-A collection of 46 fast, everyday developer utilities — JSON tools, encoders, generators, formatters, converters, and cheat sheets — all in one app. **100% frontend**: no backend, no database, no accounts, no tracking. Everything runs and stays in your browser.
+A collection of 45 fast, everyday developer utilities — JSON tools, encoders, generators, formatters, converters, and cheat sheets — all in one app. **100% frontend**: no backend, no database, no accounts, no tracking. Everything runs and stays in your browser.
 
 ## Why this exists
 
@@ -10,13 +10,13 @@ Instead of bouncing between a dozen random single-purpose websites (and wonderin
 
 ## Tools
 
-46 tools across 10 categories:
+45 tools across 10 categories:
 
 **JSON & Data** — JSON Formatter & Validator, JSON to CSV, CSV to JSON, JSON Diff, YAML ↔ JSON
 
 **Encoding** — Base64 Encoder/Decoder, URL Encoder/Decoder, HTML Entity Encoder/Decoder, URL Parser
 
-**Generators** — UUID Generator, Random Data Generator, Lorem Ipsum Generator, QR Code Generator, ASCII Art Generator, Gitignore Generator, .env Generator
+**Generators** — UUID Generator, Random Data Generator, Lorem Ipsum Generator, QR Code Generator, Gitignore Generator, .env Generator
 
 **Security** — Password Generator, JWT Decoder, Hash Generator (SHA-1/256/384/512)
 

@@ -1,13 +1,16 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { Link } from "react-router-dom";
-import { ArrowRight, Search, X } from "lucide-react";
-import { getActiveCategories, getPopularTools } from "../../data/tools.js";
+import { ArrowRight, Search, Star, X } from "lucide-react";
+import { getActiveCategories, getPopularTools, getToolById } from "../../data/tools.js";
 import { GITHUB_URL } from "../../config.js";
+import { useFavoriteTools } from "../../hooks/useFavoriteTools.js";
 import { GithubIcon } from "../common/icons.jsx";
 
 export function MobileNavigation({ open, onOpenChange, onOpenSearch }) {
   const categories = getActiveCategories();
   const popularTools = getPopularTools();
+  const { favoriteIds } = useFavoriteTools();
+  const favoriteTools = favoriteIds.map(getToolById).filter(Boolean);
 
   const close = () => onOpenChange(false);
 
@@ -42,6 +45,32 @@ export function MobileNavigation({ open, onOpenChange, onOpenSearch }) {
               <Search className="h-4 w-4" aria-hidden="true" />
               Search tools...
             </button>
+
+            <div>
+              <p className="mb-2 flex items-center gap-1.5 px-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                <Star className="h-3.5 w-3.5 fill-warning text-warning" aria-hidden="true" />
+                Favorites
+              </p>
+              {favoriteTools.length === 0 ? (
+                <p className="px-3 text-sm text-muted-foreground">
+                  No favorites yet. Tap the star on any tool to pin it here.
+                </p>
+              ) : (
+                <div className="flex flex-col">
+                  {favoriteTools.map((tool) => (
+                    <Link
+                      key={tool.id}
+                      to={tool.path}
+                      onClick={close}
+                      className="flex min-h-[44px] items-center gap-2.5 rounded-md px-3 text-sm font-medium hover:bg-muted"
+                    >
+                      <tool.icon className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+                      {tool.shortName}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <div>
               <p className="mb-2 px-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">

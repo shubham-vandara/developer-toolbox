@@ -36,7 +36,6 @@ import {
   Link,
   Ruler,
   QrCode,
-  Type,
   Percent,
   ScrollText,
   GitBranch,
@@ -571,17 +570,6 @@ export const tools = [
   },
 
   // Batch 7 — More everyday additions
-  {
-    id: "ascii-art",
-    name: "ASCII Art Generator",
-    shortName: "ASCII Art",
-    description: "Turn text into blocky ASCII art banners.",
-    category: "generators",
-    path: "/tools/ascii-art",
-    icon: Type,
-    keywords: ["ascii art", "banner", "text art", "generator"],
-    component: lazy(() => import("../tools/ascii-art/AsciiArt.jsx")),
-  },
   {
     id: "percentage-calculator",
     name: "Percentage Calculator",
