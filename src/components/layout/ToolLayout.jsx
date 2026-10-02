@@ -14,8 +14,8 @@ export function ToolLayout({ tool, children }) {
   const favorite = isFavorite(tool.id);
 
   useDocumentHead({
-    title: tool.name,
-    description: tool.description,
+    title: tool.pageTitle,
+    description: tool.metaDescription,
     path: tool.path,
   });
 
