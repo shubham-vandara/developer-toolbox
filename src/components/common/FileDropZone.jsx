@@ -3,10 +3,12 @@ import { Upload } from "lucide-react";
 import { cn } from "../../utils/cn.js";
 
 // Accessible drag-and-drop + click/keyboard file picker. Optionally accepts
-// files pasted from the clipboard. Files are only handed to `onFile`; nothing
-// is uploaded anywhere.
+// files pasted from the clipboard. Files are only handed to `onFile` (or to
+// `onFiles` as an array when `multiple`); nothing is uploaded anywhere.
 export function FileDropZone({
   onFile,
+  onFiles,
+  multiple = false,
   accept,
   title = "Drop a file here or click to browse",
   hint,
@@ -19,18 +21,28 @@ export function FileDropZone({
   const [dragging, setDragging] = useState(false);
   const dragDepth = useRef(0);
 
+  const deliver = (files) => {
+    if (!files.length) return;
+    if (multiple && onFiles) onFiles(files);
+    else onFile(files[0]);
+  };
+  const deliverRef = useRef(deliver);
+  useEffect(() => {
+    deliverRef.current = deliver;
+  });
+
   useEffect(() => {
     if (!allowPaste || disabled) return undefined;
     const handlePaste = (event) => {
-      const file = Array.from(event.clipboardData?.files ?? [])[0];
-      if (file) {
+      const files = Array.from(event.clipboardData?.files ?? []);
+      if (files.length) {
         event.preventDefault();
-        onFile(file);
+        deliverRef.current(files);
       }
     };
     window.addEventListener("paste", handlePaste);
     return () => window.removeEventListener("paste", handlePaste);
-  }, [allowPaste, disabled, onFile]);
+  }, [allowPaste, disabled]);
 
   const openPicker = () => {
     if (!disabled) inputRef.current?.click();
@@ -40,8 +52,7 @@ export function FileDropZone({
     event.preventDefault();
     dragDepth.current = 0;
     setDragging(false);
-    const file = event.dataTransfer.files?.[0];
-    if (file && !disabled) onFile(file);
+    if (!disabled) deliver(Array.from(event.dataTransfer.files ?? []));
   };
 
   return (
@@ -92,15 +103,16 @@ export function FileDropZone({
         ref={inputRef}
         type="file"
         accept={accept}
+        multiple={multiple}
         tabIndex={-1}
         aria-hidden="true"
         className="sr-only"
         onClick={(event) => event.stopPropagation()}
         onChange={(event) => {
-          const file = event.target.files?.[0];
+          const files = Array.from(event.target.files ?? []);
           // Reset so choosing the same file again still fires onChange.
           event.target.value = "";
-          if (file) onFile(file);
+          deliver(files);
         }}
       />
     </div>

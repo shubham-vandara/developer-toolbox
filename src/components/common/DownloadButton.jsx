@@ -3,7 +3,7 @@ import { downloadBlob } from "../../utils/file.js";
 import { Button } from "./Button.jsx";
 import { useToast } from "./Toast.jsx";
 
-export function DownloadButton({ blob, filename, label = "Download", variant = "primary", size = "sm", className }) {
+export function DownloadButton({ blob, filename, label = "Download", variant = "primary", size = "sm", className, ...props }) {
   const { showToast } = useToast();
   return (
     <Button
@@ -11,6 +11,7 @@ export function DownloadButton({ blob, filename, label = "Download", variant = "
       size={size}
       disabled={!blob}
       className={className}
+      {...props}
       onClick={() => {
         downloadBlob(blob, filename);
         showToast(`${filename} downloaded`);
