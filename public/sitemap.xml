@@ -47,4 +47,15 @@
   <url><loc>https://devhelpers.netlify.app/tools/log-formatter</loc><priority>0.8</priority></url>
   <url><loc>https://devhelpers.netlify.app/tools/stack-trace-formatter</loc><priority>0.8</priority></url>
   <url><loc>https://devhelpers.netlify.app/tools/ascii-reference</loc><priority>0.8</priority></url>
+  <url><loc>https://devhelpers.netlify.app/tools/image-compressor</loc><priority>0.8</priority></url>
+  <url><loc>https://devhelpers.netlify.app/tools/image-resizer</loc><priority>0.8</priority></url>
+  <url><loc>https://devhelpers.netlify.app/tools/image-converter</loc><priority>0.8</priority></url>
+  <url><loc>https://devhelpers.netlify.app/tools/image-to-base64</loc><priority>0.8</priority></url>
+  <url><loc>https://devhelpers.netlify.app/tools/base64-to-image</loc><priority>0.8</priority></url>
+  <url><loc>https://devhelpers.netlify.app/tools/image-cropper</loc><priority>0.8</priority></url>
+  <url><loc>https://devhelpers.netlify.app/tools/image-color-picker</loc><priority>0.8</priority></url>
+  <url><loc>https://devhelpers.netlify.app/tools/svg-viewer</loc><priority>0.8</priority></url>
+  <url><loc>https://devhelpers.netlify.app/tools/svg-to-png</loc><priority>0.8</priority></url>
+  <url><loc>https://devhelpers.netlify.app/tools/image-quality-converter</loc><priority>0.8</priority></url>
+  <url><loc>https://devhelpers.netlify.app/tools/favicon-generator</loc><priority>0.8</priority></url>
 </urlset>

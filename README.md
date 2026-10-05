@@ -2,7 +2,7 @@
 
 > Small tools. Big productivity.
 
-A collection of 45 fast, everyday developer utilities — JSON tools, encoders, generators, formatters, converters, and cheat sheets — all in one app. **100% frontend**: no backend, no database, no accounts, no tracking. Everything runs and stays in your browser.
+A collection of 56 fast, everyday developer utilities — JSON tools, encoders, generators, formatters, converters, image tools, and cheat sheets — all in one app. **100% frontend**: no backend, no database, no accounts, no tracking. Everything runs and stays in your browser.
 
 ## Why this exists
 
@@ -10,7 +10,7 @@ Instead of bouncing between a dozen random single-purpose websites (and wonderin
 
 ## Tools
 
-45 tools across 10 categories:
+56 tools across 11 categories:
 
 **JSON & Data** — JSON Formatter & Validator, JSON to CSV, CSV to JSON, JSON Diff, YAML ↔ JSON
 
@@ -31,6 +31,8 @@ Instead of bouncing between a dozen random single-purpose websites (and wonderin
 **Networking** — HTTP Status Code Reference, MIME Type Reference
 
 **Reference** — Regex Cheatsheet, Git Cheat Sheet, ASCII/Unicode Reference
+
+**Images** — Image Compressor, Image Resizer, Image Converter (PNG/JPEG/WebP/BMP), Image ↔ Base64, Image Cropper, Color Picker from Image, SVG Viewer, SVG to PNG, Image Quality Converter, Favicon Generator
 
 Use in-app search to jump straight to any tool by name or keyword, or browse by category from the homepage.
 
