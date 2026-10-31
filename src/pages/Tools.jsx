@@ -21,8 +21,8 @@ export function Tools() {
   const [recentIds] = useRecentTools();
 
   useDocumentHead({
-    title: "All Tools",
-    description: "Browse every developer tool available in Developer Toolbox, organized by category.",
+    title: "All Free Online Developer Tools",
+    description: "Browse 70 free online developer tools: JSON formatter, PDF editor, image compressor, regex tester, Base64 and more. Fast, private and browser-based.",
     path: "/tools",
   });
 
